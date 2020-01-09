@@ -1,0 +1,44 @@
+
+	<div class="col-sm-4">
+	    <h3 class="profile-name">User info</h3>
+	    <div>
+	    <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
+
+		</div>
+	    <h3 class="pull-left">name  <%= name %></h3>
+		<% if user.id == current_user.id %>
+	    <a><%= link_to "プロフィール編集", edit_user_path(user), class: "pull-left" %></a>
+	    <% end %>
+	</div>
+    
+  	  <div class="row">
+		<%= form_for(book) do |f| %>
+		<div class="col-sm-4">
+			<h3>New Book</h3>
+		    <h4>Title</h4>
+		      <%= f.text_field :title %>
+		 
+		    <h4>Body</h4>
+		    <%= f.text_area :body %><br>
+		 
+		    <%= f.submit 'Create Book' %>
+		    <button type="submit" class="btn btn-primary btn-block">Create Book</button>
+	  
+	  	</div>
+	  </div>
+
+<table>
+	<caption>table title and/or explanatory text</caption>
+	<thead>
+		<tr>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th>name</th><td><%= name %></td>
+			<th>introduction</th><%= introduction %>
+		</tr>
+	</tbody>
+</table>
+<% end %>
